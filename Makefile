@@ -75,3 +75,4 @@ release:
         release docs kill-docs open-docs
 
 SHELL = /bin/bash
+
