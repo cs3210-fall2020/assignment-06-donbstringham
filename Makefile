@@ -3,8 +3,6 @@
 
 # VARIABLES
 CC=go
-ALL_PACKAGES ?= $(shell go list ./... | grep -v /vendor/)
-APP_NAME ?= gsh
 BUILD_TIME ?= $(shell date +%FT%T%z)
 REPO_OWNER ?= $(shell cd .. && basename "$$(pwd)")
 VERSION ?= $(shell git describe --tags 2>/dev/null)
