@@ -1,0 +1,9 @@
+# Text files that are supposed to be normalized to LF
+*.go text
+*.php text
+*.txt text
+*.md text
+*.sh text
+*.c text
+
+* text=auto
