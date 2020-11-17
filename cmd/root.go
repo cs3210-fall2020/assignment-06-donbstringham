@@ -68,7 +68,7 @@ func initConfig() {
 		}
 
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".gstorm")
+		viper.SetConfigName(".gsh")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match
