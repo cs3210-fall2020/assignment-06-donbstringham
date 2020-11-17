@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"runtime"
+
+	"github.com/cs3210-fall2020/gsh/cmd"
+)
 
 func main() {
-	fmt.Println("gsh = go-shell")
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	cmd.Execute()
 }
