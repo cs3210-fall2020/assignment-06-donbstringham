@@ -14,3 +14,4 @@
 # Directories
 bld/
 .vscode
+workspace.code-workspace
