@@ -10,16 +10,18 @@ package cmd
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 	"os/exec"
 	"strings"
 
+	"github.com/cs3210-fall2020/gsh/util"
 	"github.com/cs3210-fall2020/gsh/ver"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	RootCmd.AddCommand(runCmd)
+	rootCmd.AddCommand(runCmd)
 }
 
 var runCmd = &cobra.Command{
@@ -56,6 +58,19 @@ func execCmd(cmdStr string) error {
 	switch cmdArr[0] {
 	case "exit":
 		os.Exit(0)
+	case "gf":
+		if len(cmdArr) <= 1 {
+			cmdArr = append(cmdArr, "./")
+		}
+		files, err := util.GetFiles(cmdArr[1])
+		if err != nil {
+			log.Panicln(err)
+			return nil
+		}
+		for _, file := range files {
+			fmt.Println("|" + file)
+		}
+		return nil
 	case "ver":
 		fmt.Printf("%s\n", ver.Version)
 		return nil

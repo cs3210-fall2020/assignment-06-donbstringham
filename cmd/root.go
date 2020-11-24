@@ -1,3 +1,4 @@
+// Package cmd contains CLI commands
 // Copyright © 2020 Don B. Stringham <donbstringham@icloud.com>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,7 +12,6 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 package cmd
 
 import (
@@ -25,8 +25,8 @@ import (
 
 var cfgFile string
 
-// RootCmd represents the base command when called without any subcommands
-var RootCmd = &cobra.Command{
+// rootCmd represents the base command when called without any subcommands
+var rootCmd = &cobra.Command{
 	Use:   "gsh",
 	Short: "An interactive Go Shell",
 	Long: `An interactive Go Shell.
@@ -41,7 +41,7 @@ $ gsh version	- Print current version.`,
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
-	if err := RootCmd.Execute(); err != nil {
+	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
@@ -50,8 +50,8 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.newApp.yaml)")
-	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.newApp.yaml)")
+	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 // initConfig reads in config file and ENV variables if set.
