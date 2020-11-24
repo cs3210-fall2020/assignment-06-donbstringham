@@ -15,7 +15,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/cs3210-fall2020/gsh/util"
+	"github.com/cs3210-fall2020/gsh/pkg"
 	"github.com/cs3210-fall2020/gsh/ver"
 	"github.com/spf13/cobra"
 )
@@ -62,7 +62,7 @@ func execCmd(cmdStr string) error {
 		if len(cmdArr) <= 1 {
 			cmdArr = append(cmdArr, "./")
 		}
-		files, err := util.GetFiles(cmdArr[1])
+		files, err := pkg.GetFiles(cmdArr[1])
 		if err != nil {
 			log.Panicln(err)
 			return nil
@@ -73,6 +73,20 @@ func execCmd(cmdStr string) error {
 		return nil
 	case "ver":
 		fmt.Printf("%s\n", ver.Version)
+		return nil
+	case "z":
+		if len(cmdArr) <= 1 {
+			cmdArr = append(cmdArr, "./")
+			cmdArr = append(cmdArr, "a")
+		}
+		files, err := pkg.FindFiles(cmdArr[1], cmdArr[2])
+		if err != nil {
+			log.Panicln(err)
+			return nil
+		}
+		for _, file := range files {
+			fmt.Println("|" + file)
+		}
 		return nil
 	}
 

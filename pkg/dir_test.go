@@ -1,11 +1,11 @@
-// Package util provides commands for the application.
+// Package pkg provides commands for the application.
 // Copyright 2020 Don B. Stringham All rights reserved.
 // Use of this source code is governed by a BSD-style license
 // that can be found in the LICENSE file.
 //
 // @author donbstringham <donbstringham@icloud.com>
 //
-package util
+package pkg
 
 import (
 	"testing"
