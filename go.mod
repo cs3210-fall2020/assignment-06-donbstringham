@@ -3,7 +3,9 @@ module github.com/cs3210-fall2020/gsh
 go 1.15
 
 require (
+	github.com/chzyer/logex v1.1.10 // indirect
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
+	github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/lithammer/fuzzysearch v1.1.1
 	github.com/magiconair/properties v1.8.4 // indirect
